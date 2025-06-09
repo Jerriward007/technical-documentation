@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Molecular Biology Technical Documentation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <nav id="navbar">
+    <header>Molecular Biology Docs</header>
+    <a class="nav-link" href="#Introduction">Introduction</a>
+    <a class="nav-link" href="#DNA_RNA_Extraction">DNA RNA Extraction</a>
+    <a class="nav-link" href="#DNA_Purification">DNA Purification</a>
+    <a class="nav-link" href="#DNA_Sequencing">DNA Sequencing</a>
+    <a class="nav-link" href="#Polymerase_Chain_Reaction">Polymerase Chain Reaction</a>
+    <a class="nav-link" href="#Bioinformatics_and_Databases">Bioinformatics and Databases</a>
+    <a class="nav-link" href="#SNP_Genotyping">SNP Genotyping</a>
+    <a class="nav-link" href="#References">References</a>
+  </nav>
+
+  <main id="main-doc">
+   <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+   <p>Molecular biology explores the molecular foundations of biological activity. It plays a central role in genetics, biotechnology, and medicine. A core part of this field involves the extraction, purification, and analysis of DNA and RNA — vital molecules that store and transmit genetic information.</p>
+        <p>With advancements in bioinformatics, scientists can now analyze massive datasets, identify mutations, and explore variations in genetic sequences. This page provides an overview of critical techniques and databases in molecular biology and bioinformatics.</p>
+        <code>// Basic DNA structure: double helix</code>
+        <code>DNA = "A-T, G-C base pairs"</code>
+        <code>RNA = "A-U, G-C base pairs"</code>
+        <ul>
+          <li>Understand the structure of nucleic acids</li>
+          <li>Extract and purify DNA/RNA</li>
+          <li>Sequence genomes</li>
+        </ul>
+      </section>
+
+    <section class="main-section" id="DNA_RNA_Extraction">
+      <header>DNA RNA Extraction</header>
+      <p>DNA and RNA extraction is a fundamental step in molecular biology that enables researchers to isolate genetic material from biological samples such as blood, tissue, cells, or bacteria. This process is crucial for downstream applications like PCR, sequencing, genotyping, and gene expression analysis.</p>
+      <p>The goal of extraction is to obtain high-quality nucleic acids (DNA or RNA) that are free from proteins, lipids, and other cellular components. Although protocols vary slightly depending on the source and type of nucleic acid, the general procedure includes cell lysis, removal of proteins and contaminants, and precipitation or purification of the nucleic acids.</p>
+      <p>There are three main methods used for extraction:</p>
+      <ul>
+        <li><strong>Organic Extraction:</strong> This method uses phenol-chloroform and is effective but involves toxic chemicals.</li>
+        <li><strong>Silica Column-based Kits:</strong> Commercial kits that bind DNA to a silica column under high-salt conditions, followed by washing and elution.</li>
+        <li><strong>Magnetic Beads:</strong> Beads with a coating that binds DNA or RNA; this method is automation-friendly and widely used in high-throughput labs.</li>
+      </ul>
+      <p>The choice of method depends on sample type, required purity, and downstream application. RNA extraction also requires protection from RNases, enzymes that degrade RNA quickly. Hence, RNA protocols often include inhibitors and work under RNase-free conditions.</p>
+      <p>Here's a simplified pseudocode version of a DNA extraction protocol:</p>
+      <code>
+# DNA Extraction Steps
+1. Lyse cells using lysis buffer
+2. Add proteinase K and incubate to digest proteins
+3. Add alcohol (ethanol or isopropanol) to precipitate DNA
+4. Centrifuge to collect DNA pellet
+5. Wash pellet and rehydrate in TE buffer
+      </code>
+      <p>Modern extraction protocols have been adapted to robotic systems, enabling faster and more reproducible results. The quality and quantity of extracted nucleic acids are usually assessed by spectrophotometry (A260/A280 ratio) and gel electrophoresis.</p>
+      <p>Reliable extraction is vital, as contaminants or degraded nucleic acids can inhibit downstream enzymatic reactions or affect sequencing fidelity.</p>
+    </section>
+
+    <section class="main-section" id="DNA_Purification">
+      <header>DNA Purification</header>
+      <p>DNA purification is a critical step following extraction to ensure the nucleic acids are clean, intact, and suitable for sensitive molecular applications such as sequencing, cloning, and PCR. The aim is to remove residual proteins, salts, enzymes, and other inhibitors that may interfere with downstream processes.</p>
+      <p>While extraction often isolates nucleic acids from complex biological samples, purification ensures these molecules are as free as possible from contaminants. The type and rigor of purification depend on the final application. For example, sequencing-grade DNA requires higher purity than DNA used for basic gel electrophoresis.</p>
+      <p>Common DNA purification strategies include:</p>
+      <ul>
+        <li><strong>Silica Membrane Columns:</strong> These bind DNA in the presence of chaotropic salts. Washing steps remove contaminants, and pure DNA is eluted using low-salt buffers or water.</li>
+        <li><strong>Magnetic Beads:</strong> Beads with surface chemistry that selectively binds DNA. After binding, the beads are magnetically separated, washed, and DNA is eluted.</li>
+        <li><strong>Alcohol Precipitation:</strong> DNA is precipitated with isopropanol or ethanol in the presence of salts (e.g., sodium acetate), pelleted by centrifugation, washed, and resuspended.</li>
+        <li><strong>Size-Exclusion Chromatography:</strong> Used to separate DNA from small molecules and salts based on size differences.</li>
+      </ul>
+      <p>A typical alcohol precipitation workflow might resemble the following:</p>
+      <code>
+# DNA Purification via Ethanol Precipitation
+1. Add 2 volumes of cold ethanol and 0.1 volume of sodium acetate to DNA solution
+2. Incubate at -20°C for 30 minutes
+3. Centrifuge at max speed for 10 minutes
+4. Wash pellet with 70% ethanol
+5. Air dry and resuspend in nuclease-free water
+      </code>
+      <p>Quality checks for purified DNA include spectrophotometric analysis (A260/A280 ratio should be ~1.8 for DNA), fluorometric quantification (Qubit), and integrity assessment using agarose gel electrophoresis or automated electrophoresis systems like Agilent Bioanalyzer.</p>
+      <p>High-purity DNA is especially important for applications like next-generation sequencing (NGS) and CRISPR gene editing, where even trace contaminants can lead to inaccurate results or failed reactions.</p>
+    </section>
+
+   <section class="main-section" id="DNA_Sequencing">
+  <header>DNA Sequencing</header>
+  <p>DNA sequencing is the process of determining the precise order of nucleotides within a DNA molecule. This information reveals the genetic instructions used in the development, functioning, and reproduction of all living organisms and viruses. The ability to sequence DNA accurately has revolutionized biology, medicine, and biotechnology.</p>
+  
+  <p>The first major method developed was the Sanger sequencing technique, introduced in the 1970s. It uses chain-terminating nucleotides (dideoxynucleotides) that halt DNA synthesis at specific bases, allowing the determination of sequence by fragment size separation.</p>
+  
+  <p>Key DNA sequencing methods include:</p>
+  <ul>
+    <li><strong>Sanger Sequencing:</strong> A highly accurate method that sequences short DNA fragments (up to ~1000 bases). It remains widely used for validation and small-scale projects.</li>
+    <li><strong>Next-Generation Sequencing (NGS):</strong> These are high-throughput technologies capable of sequencing millions of DNA fragments simultaneously. Platforms like Illumina, Ion Torrent, and PacBio provide massive data for genome-wide studies.</li>
+    <li><strong>Third-Generation Sequencing:</strong> Techniques such as Oxford Nanopore and PacBio SMRT sequencing provide longer read lengths, allowing resolution of complex genomic regions and structural variations.</li>
+  </ul>
+  
+  <p>The general workflow of DNA sequencing includes:</p>
+  <code>
+  # Basic DNA Sequencing Workflow
+  1. Extract and purify DNA<br>
+  2. Prepare sequencing library (fragmentation, adapter ligation)<br>
+  3. Sequence DNA using chosen technology<br>
+  4. Process raw data into readable sequences<br>
+  5. Analyze sequences using bioinformatics tools
+  </code>
+  
+  <p>Sequencing data is used in many applications such as identifying genetic mutations, studying microbial diversity, evolutionary biology, and personalized medicine. Bioinformatics pipelines align sequences to reference genomes and detect variations.</p>
+  
+  <p>While NGS provides unprecedented throughput, data accuracy and error correction remain essential considerations. Read lengths, error profiles, and cost vary by technology, influencing their suitability for different research questions.</p>
+  
+</section>
+
+
+    <section class="main-section" id="Polymerase_Chain_Reaction">
+  <header>Polymerase Chain Reaction</header>
+  <p>The Polymerase Chain Reaction (PCR) is a powerful and widely-used molecular biology technique designed to amplify specific DNA sequences. Invented by Kary Mullis in 1983, PCR allows researchers to produce millions to billions of copies of a particular DNA segment from a small initial sample.</p>
+  
+  <p>The PCR process consists of repeated cycles of three key steps:</p>
+  <ul>
+    <li><strong>Denaturation:</strong> Heating the reaction mixture to around 94-98°C to separate the double-stranded DNA into single strands.</li>
+    <li><strong>Annealing:</strong> Cooling the mixture to 50-65°C to allow short DNA primers to bind (anneal) to their complementary sequences on the single-stranded DNA templates.</li>
+    <li><strong>Extension:</strong> Raising the temperature to approximately 72°C where a heat-stable DNA polymerase synthesizes a new DNA strand by adding nucleotides complementary to the template strand.</li>
+  </ul>
+  
+  <p>This cycle is repeated typically 25-35 times, doubling the target DNA with each cycle, leading to exponential amplification.</p>
+  
+  <p>PCR components include:</p>
+  <ul>
+    <li>Template DNA: The DNA containing the sequence to be amplified.</li>
+    <li>Primers: Short, synthetic single-stranded DNA sequences complementary to the target region's start and end.</li>
+    <li>DNA polymerase: Usually Taq polymerase, a heat-stable enzyme that synthesizes DNA.</li>
+    <li>Deoxynucleotide triphosphates (dNTPs): Building blocks for new DNA strand synthesis.</li>
+    <li>Buffer solution: Maintains optimal conditions for polymerase activity.</li>
+  </ul>
+  
+  <p>Example of PCR cycle in pseudocode:</p>
+  <code>
+  # PCR Cycle<br>
+  1. Denature DNA at 95°C for 30 seconds<br>
+  2. Anneal primers at 55°C for 30 seconds<br>
+  3. Extend DNA at 72°C for 1 minute<br>
+  4. Repeat for 30 cycles
+  </code>
+  
+  <p>Applications of PCR include:</p>
+  <ul>
+    <li>Diagnosing infectious diseases by detecting pathogen DNA.</li>
+    <li>Genotyping and mutation analysis.</li>
+    <li>Forensic DNA fingerprinting.</li>
+    <li>Cloning genes for research and therapeutic use.</li>
+  </ul>
+  
+  <p>PCR revolutionized biology by enabling rapid DNA amplification without the need for cloning in cells. Its variants, such as quantitative PCR (qPCR) and reverse transcription PCR (RT-PCR), expand its utility into quantification and RNA analysis.</p>
+</section>
+
+    <section class="main-section" id="Bioinformatics_and_Databases">
+  <header>Bioinformatics and Databases</header>
+  <p>Bioinformatics is an interdisciplinary field combining biology, computer science, and information technology to analyze and interpret biological data, especially molecular sequences like DNA, RNA, and proteins. It plays a crucial role in managing the vast amounts of data generated by modern sequencing technologies.</p>
+  
+  <p>Central to bioinformatics are databases that store and organize molecular data, allowing researchers to retrieve, compare, and analyze genetic information efficiently. These databases facilitate studies in genomics, proteomics, evolutionary biology, and medical research.</p>
+  
+  <p>Key molecular biology databases include:</p>
+  <ul>
+    <li><strong>GenBank:</strong> A comprehensive public repository of nucleotide sequences maintained by the National Center for Biotechnology Information (NCBI).</li>
+    <li><strong>RefSeq:</strong> Provides curated reference sequences of genomes, transcripts, and proteins for major organisms.</li>
+    <li><strong>Protein Data Bank (PDB):</strong> A database of 3D structural data of biological molecules such as proteins and nucleic acids.</li>
+    <li><strong>Ensembl:</strong> Offers genome browser services and annotation data for vertebrate genomes.</li>
+    <li><strong>dbSNP:</strong> A database cataloging single nucleotide polymorphisms (SNPs) and other genetic variations.</li>
+  </ul>
+  
+  <p>Bioinformatics tools enable:</p>
+  <ul>
+    <li>Sequence alignment and comparison to identify homologous regions or mutations.</li>
+    <li>Gene prediction and annotation to understand gene functions.</li>
+    <li>Phylogenetic analysis to study evolutionary relationships.</li>
+    <li>Protein structure prediction and docking studies.</li>
+    <li>Data visualization through genome browsers and interactive charts.</li>
+  </ul>
+  
+  <p>Researchers access these resources via web interfaces, command-line tools, or programming APIs. Common bioinformatics software includes BLAST for sequence similarity searches, Clustal Omega for multiple sequence alignment, and Galaxy for workflow management.</p>
+  
+  <p>Understanding and utilizing bioinformatics databases is essential for modern molecular biology research, enabling scientists to derive meaningful insights from complex data sets.</p>
+</section>
+
+    <section class="main-section" id="SNP_Genotyping">
+  <header>SNP Genotyping</header>
+  <p>Single Nucleotide Polymorphisms (SNPs) are the most common type of genetic variation among individuals. They represent a difference in a single nucleotide—A, T, C, or G—in the DNA sequence and can influence traits, disease susceptibility, and drug responses.</p>
+  
+  <p>SNP genotyping is the process of detecting these variations in individuals or populations. It is essential for genetic association studies, personalized medicine, and evolutionary biology.</p>
+  
+  <p>Common SNP genotyping methods include:</p>
+  <ul>
+    <li><strong>Allele-specific PCR:</strong> Uses primers designed to amplify only one allele of the SNP.</li>
+    <li><strong>Microarray-based genotyping:</strong> DNA samples hybridize to chips containing thousands of SNP probes, allowing parallel analysis.</li>
+    <li><strong>Next-Generation Sequencing (NGS):</strong> High-throughput sequencing can identify SNPs genome-wide with great accuracy.</li>
+  </ul>
+  
+  <p>SNP genotyping data helps in mapping genetic diseases, understanding population genetics, and identifying drug targets. It also enables the development of personalized treatments based on an individual's genetic makeup.</p>
+  
+  <p>Example of SNP genotyping workflow in pseudocode:</p>
+  <code>
+  # SNP Genotyping Workflow<br>
+  1. Extract genomic DNA<br>
+  2. Select SNP loci of interest<br>
+  3. Design primers or probes<br>
+  4. Perform PCR amplification or hybridization<br>
+  5. Detect alleles via fluorescence, sequencing, or electrophoresis<br>
+  6. Analyze data to determine genotype
+  </code>
+  
+  <p>Despite advances, challenges in SNP genotyping include ensuring accuracy, distinguishing closely related alleles, and handling large datasets efficiently.</p>
+</section>
+
+
+    <section class="main-section" id="References">
+      <header>References</header>
+      <p>1. Sambrook, J., & Russell, D. W. (2001). Molecular Cloning: A Laboratory Manual. Cold Spring Harbor Laboratory Press.</p>
+      <p>2. Green, M. R., & Sambrook, J. (2012). Molecular Cloning: A Laboratory Manual (4th ed.).</p>
+      <p>3. National Center for Biotechnology Information (NCBI) – https://www.ncbi.nlm.nih.gov</p>
+      <p>4. Thermo Fisher Scientific – https://www.thermofisher.com</p>
+      <p>5. EMBL-EBI – https://www.ebi.ac.uk</p>
+    </section>
+  </main>
+</body>
+
+</html>
